@@ -13,7 +13,7 @@
 
 This project is compatible with **Windows 10/11**.
 
-## How to Use
+## How to Use [CLI]
 
 1. **Clone the Repository:**
    ```bash
