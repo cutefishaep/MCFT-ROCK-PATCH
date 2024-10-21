@@ -16,7 +16,7 @@ if '%errorlevel%' NEQ '0' (
 )
 
 :: Define variables
-set PATCH_DIR=%~dp0Patch
+set PATCH_DIR=%~dp0MCFT_TEMPFILE
 set FILE32_DIR=%PATCH_DIR%\32
 set FILEWOW_DIR=%PATCH_DIR%\WOW
 set UNLOCKER_PATH=%PATCH_DIR%\unlocker\IObitUnlocker.exe
