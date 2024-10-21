@@ -15,15 +15,20 @@ This project is compatible with **Windows 10/11**.
 
 ## How to Use [CLI]
 
-1. **Clone the Repository:**
+1. **Download This App**
+<a href="https://www.microsoft.com/store/productId/9NBLGGH2JHXJ?ocid=pdpshare" target="_blank">
+    <img src="https://www.icollecteverything.com/wp-content/uploads/2023/10/windows-2-1-1-300x102.png" alt="Download on Microsoft Store" style="border:none;" width="150" height="51"/>
+</a>
+
+2. **Clone the Repository:**
    ```bash
    git clone https://github.com/yourusername/MCFT-ROCK-PATCH.git
    ```
-2. **Navigate to the Project Directory:**
+3. **Navigate to the Project Directory:**
    ```bash
    cd MCFT-ROCK-PATCH
    ```
-3. **Run the Patch:**
+4. **Run the Patch:**
    Simply execute the provided bash script:
    ```bash
    run.bat
