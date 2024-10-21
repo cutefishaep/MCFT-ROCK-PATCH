@@ -35,46 +35,36 @@ echo Granting full control permissions to target files...
 icacls "%TARGET32%" /grant administrators:F >nul 2>&1
 icacls "%TARGETWOW%" /grant administrators:F >nul 2>&1
 
-:: Step 3: Kill WhatsApp UWP app
-echo Closing WhatsApp UWP app...
-taskkill /IM "WhatsApp.exe" /F >nul 2>&1
-
-:: Step 4: Force close any Xbox app and Microsoft Store
-echo Closing Xbox apps and Microsoft Store...
-taskkill /IM "XboxApp.exe" /F >nul 2>&1
-taskkill /IM "Microsoft.Store.exe" /F >nul 2>&1
-taskkill /IM "XboxGameOverlay.exe" /F >nul 2>&1
-
-:: Step 5: Wait for processes to close completely
+:: Step 3: Wait for processes to close completely
 echo Waiting for processes to close...
 timeout /t 5 /nobreak >nul
 
-:: Step 6: Unlock the existing DLLs using IObit Unlocker
+:: Step 4: Unlock the existing DLLs using IObit Unlocker
 echo Unlocking existing DLLs...
 "%UNLOCKER_PATH%" /Delete /Normal "%TARGET32%" >nul 2>&1
 "%UNLOCKER_PATH%" /Delete /Normal "%TARGETWOW%" >nul 2>&1
 
-:: Step 7: Forcefully remove existing DLLs (if not removed)
+:: Step 5: Forcefully remove existing DLLs (if not removed)
 echo Removing existing DLLs...
 del /f "%TARGET32%" >nul 2>&1
 del /f "%TARGETWOW%" >nul 2>&1
 
-:: Step 8: Rename files
+:: Step 6: Rename files
 echo Renaming files...
 ren "%FILE32_DIR%\%DLL32%" Windows.ApplicationModel.Store.dll
 ren "%FILEWOW_DIR%\%DLLWOW%" Windows.ApplicationModel.Store.dll
 
-:: Step 9: Copy and force replace
+:: Step 7: Copy and force replace
 echo Copying and replacing files...
 copy /y "%FILE32_DIR%\Windows.ApplicationModel.Store.dll" "%TARGET32%"
 copy /y "%FILEWOW_DIR%\Windows.ApplicationModel.Store.dll" "%TARGETWOW%"
 
-:: Step 10: Rename back to original
+:: Step 8: Rename back to original
 echo Renaming files back to original...
 ren "%FILE32_DIR%\Windows.ApplicationModel.Store.dll" %DLL32%
 ren "%FILEWOW_DIR%\Windows.ApplicationModel.Store.dll" %DLLWOW%
 
-:: Step 11: Done message
+:: Step 9: Done message
 echo Done patching!
 
 pause
